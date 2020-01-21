@@ -1,0 +1,10 @@
+200120201047, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/20/20, 10:47:18 AM EST
+200120201054, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/20/20, 10:54:58 AM EST
+200120201101, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/20/20, 11:01:28 AM EST
+200120201101, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/20/20, 11:01:40 AM EST
+200120201122, 77777,  "Dust - Patricia Cornwell", 12.99, 1, 0.0, 12.99, 01/20/20, 11:22:05 AM EST
+200120201127, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/20/20, 11:27:43 AM EST
+200120201127, 77777,  "Dust - Patricia Cornwell", 12.99, 5, 0.1, 58.454998, 01/20/20, 11:27:56 AM EST
+200120201128, 88888,  "Terminal City - Linda Fairstein", 10.95, 2, 0.0, 21.9, 01/20/20, 11:28:25 AM EST
+200120201130, 77777,  "Dust - Patricia Cornwell", 12.99, 5, 0.1, 58.45, 01/20/20, 11:30:09 AM EST
+200120201130, 88888,  "Terminal City - Linda Fairstein", 10.95, 1, 0.0, 10.95, 01/20/20, 11:30:49 AM EST
