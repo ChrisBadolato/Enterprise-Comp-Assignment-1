@@ -9,3 +9,41 @@
 200120201130, 77777,  "Dust - Patricia Cornwell", 12.99, 5, 0.1, 58.45, 01/20/20, 11:30:09 AM EST
 200120201130, 88888,  "Terminal City - Linda Fairstein", 10.95, 1, 0.0, 10.95, 01/20/20, 11:30:49 AM EST
 200120201131, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/20/20, 11:31:20 AM EST
+210120201104, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 11:04:10 AM EST
+210120201105, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 11:05:05 AM EST
+210120201354, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 01:54:30 PM EST
+210120201354, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 01:54:55 PM EST
+210120201355, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 01:55:15 PM EST
+210120201355, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 01:55:53 PM EST
+210120201358, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 01:58:05 PM EST
+210120201359, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 01:59:41 PM EST
+210120201400, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 02:00:20 PM EST
+210120201401, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 02:01:15 PM EST
+210120201401, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 02:01:49 PM EST
+210120201406, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 02:06:37 PM EST
+210120201406, 77777,  "Dust - Patricia Cornwell", 12.99, 1, 0.0, 12.99, 01/21/20, 02:06:44 PM EST
+210120201407, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 02:07:49 PM EST
+210120201407, 77777,  "Dust - Patricia Cornwell", 12.99, 1, 0.0, 12.99, 01/21/20, 02:07:58 PM EST
+210120201408, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 02:08:55 PM EST
+210120201409, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 02:09:08 PM EST
+210120201409, 77777,  "Dust - Patricia Cornwell", 12.99, 1, 0.0, 12.99, 01/21/20, 02:09:21 PM EST
+210120201409, 77777,  "Dust - Patricia Cornwell", 12.99, 1, 0.0, 12.99, 01/21/20, 02:09:40 PM EST
+210120201410, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 02:10:18 PM EST
+210120201410, 77777,  "Dust - Patricia Cornwell", 12.99, 1, 0.0, 12.99, 01/21/20, 02:10:26 PM EST
+210120201416, 77777,  "Dust - Patricia Cornwell", 12.99, 5, 0.1, 58.45, 01/21/20, 02:16:26 PM EST
+210120201417, 77777,  "Dust - Patricia Cornwell", 12.99, 20, 0.2, 207.84, 01/21/20, 02:17:06 PM EST
+210120201418, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 2, 0.0, 25.9, 01/21/20, 02:18:01 PM EST
+210120201419, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 2, 0.0, 25.9, 01/21/20, 02:19:37 PM EST
+210120201421, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 2, 0.0, 25.9, 01/21/20, 02:21:03 PM EST
+210120201422, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 2, 0.0, 25.9, 01/21/20, 02:22:35 PM EST
+210120201424, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 2, 0.0, 25.9, 01/21/20, 02:24:24 PM EST
+210120201427, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 2, 0.0, 25.9, 01/21/20, 02:27:06 PM EST
+210120201427, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 2, 0.0, 25.9, 01/21/20, 02:27:35 PM EST
+210120201434, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 02:34:38 PM EST
+210120201434, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 02:34:54 PM EST
+210120201435, 77777,  "Dust - Patricia Cornwell", 12.99, 1, 0.0, 12.99, 01/21/20, 02:35:13 PM EST
+210120201435, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 02:35:31 PM EST
+210120201435, 77777,  "Dust - Patricia Cornwell", 12.99, 11, 0.15, 121.46, 01/21/20, 02:35:50 PM EST
+210120202102, 88888,  "Terminal City - Linda Fairstein", 10.95, 15, 0.15, 139.61, 01/21/20, 09:02:19 PM EST
+210120202102, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 1, 0.0, 12.95, 01/21/20, 09:02:42 PM EST
+210120202102, 234,  "The Bourne Identity - Robert Ludlum", 12.95, 5, 0.1, 58.28, 01/21/20, 09:02:53 PM EST

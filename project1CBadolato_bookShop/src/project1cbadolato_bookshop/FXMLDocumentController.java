@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -114,8 +115,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void processItemButton(MouseEvent event) throws FileNotFoundException, UnsupportedEncodingException {
-            //reset individual Book discount total, quantity and cost
-        
+            //reset individual Book discount total, quantity and cost       
         singleBookQuantity = 0;
         singleBookTotalCost = 0;
         totalDiscount = 0;
@@ -158,7 +158,7 @@ public class FXMLDocumentController implements Initializable {
                     itemInfoField.setText(bookID[currentBookArrayLoction] + " " + bookTitle[currentBookArrayLoction] 
                             + " " + "$" + bookCost[currentBookArrayLoction] 
                             + " " +  singleBookQuantity + " " + currentDiscount + "% "+ "$" + subtotalStr);
-                        //reset buttons
+                        //turn off proccess item button, turn on confirm item button.
                     processItemButton.setDisable(true);
                     processItemButton.setOpacity(.5);
                     confirmItemButton.setDisable(false);
@@ -210,8 +210,7 @@ public class FXMLDocumentController implements Initializable {
             itemQuantityField.setEditable(false);         
         }
             //otherwise we still have items in our order so continue normally.
-        else{
-               
+        else{              
             confirmItemButton.setDisable(true);
             confirmItemButton.setOpacity(.5);
             processItemButton.setDisable(false);
@@ -225,9 +224,9 @@ public class FXMLDocumentController implements Initializable {
         }       
             //display alert message
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Message");
+        alert.setTitle("Item Accepted");
         alert.setHeaderText(null);
-        alert.setContentText("Item #"+ itemNumber + " accepted"); 
+        alert.setContentText("Item #"+ itemNumber + " Accepted"); 
         itemNumber++;           
         alert.showAndWait(); 
             //set button and label text
@@ -265,8 +264,7 @@ public class FXMLDocumentController implements Initializable {
         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("MM/d/yy");
         DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("hh:mm:ss a");      
         String date = formatter2.format(dateAndTime);
-        String time = formatter3.format(dateAndTime);
-            
+        String time = formatter3.format(dateAndTime);      
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Finish Order");
         alert.setHeaderText(null);
@@ -277,7 +275,7 @@ public class FXMLDocumentController implements Initializable {
         outputText = outputText + "Item#/ID/Title/Price/Qty/Disc %/ Subtotal: \n\n";
             //get data from transaction file for output string.
         outputText = outputText + textFromTransactionFile();
-            //formatting
+            //formatting and math for getting final output data.
         DecimalFormat df = new DecimalFormat("#.##");
         String finalTotal = df.format(transactionTotal);       
         taxAmount = transactionTotal * taxValue;
@@ -296,51 +294,16 @@ public class FXMLDocumentController implements Initializable {
         windowSize = 600 + (i * 50);
         alert.getDialogPane().setPrefSize(800, windowSize);
         alert.showAndWait();
+        newOrder();
     }
 
     @FXML
     private void newOrderButton(MouseEvent event) throws FileNotFoundException, IOException {
-        itemNumber = 1;
-        subtotal = 0;
-            //reconfigure buttons
-        finishOrderButton.setDisable(true);
-        finishOrderButton.setOpacity(1);
-        processItemButton.setDisable(false);
-        processItemButton.setOpacity(1); 
-        processItemButton.setText("Process Item #" + itemNumber);    
-        confirmItemButton.setDisable(true);
-        confirmItemButton.setOpacity(.5); 
-        confirmItemButton.setText("Confirm Item #" + itemNumber);
-        viewOrderButton.setDisable(false);
-        viewOrderButton.setOpacity(1);               
-        finishOrderButton.setDisable(true);
-        finishOrderButton.setOpacity(.5);
-            //reconfigure textFields
-        bookIDField.setEditable(true);
-        itemQuantityField.setEditable(true); 
-        itemInOrderField.setEditable(true);      
-        itemInOrderField.setText("");
-        bookIDField.setText("");
-        itemQuantityField.setText("");  
-        itemInfoField.setText("");
-        orderSubtotalField.setText("");
-            //reset Labels
-        bookIDText.setText("Enter Book ID for item #" + (itemNumber) + ":");
-        quantityText.setText("End quantity for item #" + (itemNumber) + ":");
-        itemInfoText.setText("Item #" + (itemNumber) + " info:");
-        orderSubtotalText.setText("Order subtotal for " + (itemNumber - 1) + " item(s):");  
-            //get book lists.
-        try {
-            getBooksList();
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        firstOrder = true;    
+        newOrder();
     }
     
-    
-    public void getBooksList() throws FileNotFoundException, IOException{
-            //opening inventory.txt to get the book data
+        //opening inventory.txt to get the book data
+    public void getBooksList() throws FileNotFoundException, IOException{          
         BufferedReader br = new BufferedReader(new FileReader("src\\project1cbadolato_bookshop\\inventory.txt")); 
             //gathering data from our inventory file            
         String title, ID, cost, string;       
@@ -358,7 +321,7 @@ public class FXMLDocumentController implements Initializable {
             i++;
         }               
     }
-    
+        //writes to transaction file when needed.
     public void writeToTransactionFile() throws FileNotFoundException, UnsupportedEncodingException, IOException{
             //get local date and time and set up formatters for printing.
         LocalDateTime dateAndTime = LocalDateTime.now();                   
@@ -379,7 +342,10 @@ public class FXMLDocumentController implements Initializable {
     }
         //get discount percentage based on number of book.
     int discount(int quantity){
-        if (quantity >= 10){
+        if(quantity >= 20){
+            return 20;
+        }
+        if (quantity >= 10 & quantity < 20 ){
             return 15;
         }
         if(quantity >= 5 & quantity < 10){
@@ -409,12 +375,21 @@ public class FXMLDocumentController implements Initializable {
     public String textFromTransactionFile() throws IOException{       
         String[] dataFromTransactionFile;
         dataFromTransactionFile = readTransactionFile();
-        String ID, title, cost, quantity, discount, total, outputText = "";       
-        int i = 0, intDiscount;
+        String ID, title, cost, quantity, discount, total, outputText = "";
+        float floatCost;
+        int i = 0, intDiscount, booksOnFile = 0, startOfCurrentOrder;
         transactionTotal = 0;
-            //grab each string we created from the data file and delimit each books individual data
-        while(dataFromTransactionFile[i] != null) {   
-            String string = dataFromTransactionFile[i];
+            //because we only want to view the current transactions, we need to start the search through
+            //the file at the current position within the transaction file.
+            //so if we currently add 3 books, we will search the file for the total number of books
+            //subtract the item number we are currently viewing from the total number of books, this will
+            //give us our current position in the transaction file for viewing!    
+        while(dataFromTransactionFile[booksOnFile] != null) {   
+            booksOnFile++;
+        }
+        startOfCurrentOrder = (booksOnFile - (itemNumber - 1));          
+        while(dataFromTransactionFile[startOfCurrentOrder] != null) {   
+            String string = dataFromTransactionFile[startOfCurrentOrder];
             String[] individualData  = string.split(",");           
             ID = individualData[1];
             title = individualData[2];
@@ -423,11 +398,55 @@ public class FXMLDocumentController implements Initializable {
             discount = individualData[5];
             total = individualData[6];    
             transactionTotal = transactionTotal + Float.parseFloat(total);
+            floatCost = Float.parseFloat(cost);           
+            NumberFormat formatter = NumberFormat.getCurrencyInstance();
+            total = formatter.format(transactionTotal);
+            cost = formatter.format(floatCost);
             intDiscount = (int)(Float.parseFloat(discount) * 100.0);           
-            outputText = outputText + (i + 1) + "." + " " + ID + " " + title +
-                    cost + " "+ quantity + " " + intDiscount  + "% " + total + "\n";           
+            outputText = outputText + (i + 1) + "." + " " + ID + " " + title + " " +
+                    cost + " " + quantity + " " + intDiscount  + "% " + total + "\n";           
+            startOfCurrentOrder++;
             i++;
         }         
         return outputText;
+    }
+    
+    public void newOrder(){
+        itemNumber = 1;
+        subtotal = 0;
+            //reconfigure buttons
+        finishOrderButton.setDisable(true);
+        finishOrderButton.setOpacity(1);
+        processItemButton.setDisable(false);
+        processItemButton.setOpacity(1); 
+        processItemButton.setText("Process Item #" + itemNumber);    
+        confirmItemButton.setDisable(true);
+        confirmItemButton.setOpacity(.5); 
+        confirmItemButton.setText("Confirm Item #" + itemNumber);
+        viewOrderButton.setDisable(false);
+        viewOrderButton.setOpacity(1);               
+        finishOrderButton.setDisable(true);
+        finishOrderButton.setOpacity(.5);
+            //reconfigure Text Fields
+        bookIDField.setEditable(true);
+        itemQuantityField.setEditable(true); 
+        itemInOrderField.setEditable(true);      
+        itemInOrderField.setText("");
+        bookIDField.setText("");
+        itemQuantityField.setText("");  
+        itemInfoField.setText("");
+        orderSubtotalField.setText("");
+            //reset Labels
+        bookIDText.setText("Enter Book ID for item #" + (itemNumber) + ":");
+        quantityText.setText("End quantity for item #" + (itemNumber) + ":");
+        itemInfoText.setText("Item #" + (itemNumber) + " info:");
+        orderSubtotalText.setText("Order subtotal for " + (itemNumber - 1) + " item(s):");  
+            //get book lists.
+        try {
+            getBooksList();
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        firstOrder = true;    
     }
 }
